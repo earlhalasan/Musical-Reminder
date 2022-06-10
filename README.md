@@ -1,15 +1,16 @@
-# Playlisterrr
+# Playlistr
 
-# Premise
+## Premise
 
-# User Story
+## User Story
 
-# Wireframes
+
+## Wireframes
 
 ## ERD
 <img src="https://i.imgur.com/Qg4pIBW.png" width=800>
 
-# Technologies Used
+## Technologies Used
 * HTML
 * CSS
 * JavaScript
