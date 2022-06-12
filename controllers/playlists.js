@@ -19,7 +19,7 @@ router.use((req, res, next) => {
 // Routes
 /////////////////////////////////////////
 
-// index route
+// Index Route
 router.get("/", (req, res) => {
   // find all the playlists
   Playlist.find({})
@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
     });
 });
 
-// create route
+// Create Route
 router.post("/", (req, res) => {
   // create the new playlist
   Playlist.create(req.body)
@@ -52,12 +52,12 @@ router.post("/", (req, res) => {
     });
 });
 
-// New route
+// New Route
 router.get("/new", (req, res) => {
   res.render("playlists/new.liquid");
 });
 
-// show route
+// Show Route
 router.get("/:id", (req, res) => {
   // get the id from params
   const id = req.params.id;
@@ -73,14 +73,14 @@ router.get("/:id", (req, res) => {
     });
 });
 
-//update route
+// Update Route (after edit)
 router.put("/:id", (req, res) => {
   // get the id from params
   const id = req.params.id;
   Playlist.findByIdAndUpdate(id, req.body, { new: true })
     .then((playlist) => {
       // redirect to main page after updating
-      res.redirect("/playlists");
+      res.redirect(`/playlists/${playlist.id}`);
     })
     // send error as json
     .catch((error) => {
@@ -89,7 +89,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-// delete route
+// Delete Route
 router.delete("/:id", (req, res) => {
   // get the id from params
   const id = req.params.id;
@@ -106,7 +106,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-// edit route
+// Edit Route
 router.get("/:id/edit", (req, res) => {
   // get the id from params
   const id = req.params.id;
