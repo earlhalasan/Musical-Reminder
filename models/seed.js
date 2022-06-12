@@ -39,10 +39,10 @@ db.on("open", () => {
   // Delete all playlsits
   Playlist.deleteMany({})
     .then((deletedPlaylists) => {
-      // add the starter fruits
+      // add the starter playlists
       Playlist.create(startPlaylists)
         .then((newPlaylists) => {
-          // log the new fruits to confirm their creation
+          // log the new playlists to confirm their creation
           console.log(newPlaylists);
           db.close();
         })

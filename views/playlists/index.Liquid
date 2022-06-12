@@ -1,0 +1,20 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <a href="/playlists/new"><button>New Playlist</button></a>
+
+  {% for playlist in playlists %}
+  <article>
+    <div>
+      <a href="/playlists/{{ playlist._id }}">
+        <img src="{{ playlist.img }}" width="350" /><br />
+        <p>
+          {{ playlist.name }}
+        </p>
+      </a>
+      <p>{{ playlist.description }}</p>
+    </div>
+  </article>
+  <br />
+  {% endfor %}
+</div>
+{% endblock %}

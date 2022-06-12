@@ -1,0 +1,24 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <article>
+    <div>
+      <h2>
+        {{ playlists.name }}
+      </h2>
+
+      <img src="{{ playlists.img }}" width="350" /><br />
+
+      <h5>{{ playlists.description }}</h5>
+
+      <a href="/playlists/{{ playlists._id }}/edit"><button>Edit</button></a>
+      <form
+        action="/playlists/{{ playlists._id }}?_method=DELETE"
+        method="POST"
+      >
+        <input type="submit" value="Delete" />
+      </form>
+      <a href="/playlists/"><button>Back to Main</button></a>
+    </div>
+  </article>
+</div>
+{% endblock %}

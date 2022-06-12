@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const path = require("path");
-// const PlaylistRouter = require("./controllers/playlists");
+const PlaylistRouter = require("./controllers/playlists");
 
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
@@ -24,7 +24,7 @@ app.use(express.static("public")); // serve files from public statically
 ////////////////////////////////////////////
 // Routes
 ////////////////////////////////////////////
-// app.use("/playlists", PlaylistRouter); // send all "/playlists" routes to fruit router
+app.use("/playlists", PlaylistRouter); // send all "/playlists" routes to playlist router
 
 // Default Index
 app.get("/", (req, res) => {
