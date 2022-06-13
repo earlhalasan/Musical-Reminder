@@ -1,17 +1,17 @@
 const mongoose = require("./connection");
 const { Schema, model } = mongoose;
 
-// make playlist schema
-const playlistSchema = new Schema({
+// make song schema
+const songSchema = new Schema({
   name: { type: String, required: true },
-  description: String,
+  artist: String,
   img: String,
-  genre: String,
+  album: String,
 });
 
-const Playlist = model("Playlist", playlistSchema);
+const Song = model("Song", songSchema);
 
 ///////////////////////////////////////////////////
 // Export Model
 ///////////////////////////////////////////////////
-module.exports = Playlist;
+module.exports = Song;

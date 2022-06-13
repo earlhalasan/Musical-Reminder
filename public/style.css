@@ -1,3 +1,37 @@
+body {
+  line-height: 1;
+}
+
+#shadow {
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.padding {
+  padding: 10px;
+}
+
+.contain {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+}
+
+/* div {
+  padding: 10px;
+} */
+
+/* .u-pull-right {
+  float: right;
+} */
+/* .u-pull-left {
+  float: left;
+} */
+
 #descript {
   font-style: italic;
+}
+
+img {
+  border-radius: 10%;
 }

@@ -4,15 +4,30 @@
 
   {% for playlist in playlists %}
   <article>
-    <div>
-      <h4>{{ playlist.name }}</h4>
-      <a href="/playlists/{{ playlist._id }}">
-        <img src="{{ playlist.img }}" width="350" /></a
-      ><br />
-      <p id="descript">{{ playlist.description }}</p>
+    <div class="row padding" id="shadow">
+      <div class="one-third column">
+        <a href="/playlists/{{ playlist._id }}">
+          <img src="{{ playlist.img }}" width="200" class="u-max-full-width"
+        /></a>
+      </div>
+
+      <div class="two-thirds column">
+        <h4>{{ playlist.name }}</h4>
+
+        <p id="descript">{{ playlist.description }}</p>
+        <p>
+          Genre:
+          <strong
+            ><em>{{ playlist.genre }}</em></strong
+          >
+        </p>
+      </div>
+
+      <br />
     </div>
   </article>
   <br />
   {% endfor %}
 </div>
+
 {% endblock %}

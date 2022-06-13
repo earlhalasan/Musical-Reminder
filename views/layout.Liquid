@@ -28,11 +28,14 @@
     <script src="/app.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Playlistr</h1>
-    </header>
-
-    <main>{% block content %}My default content{% endblock %}</main>
+    <div class="container">
+      <main>
+        <header>
+          <h1>Playlistr</h1>
+        </header>
+        {% block content %}My default content{% endblock %}
+      </main>
+    </div>
 
     <footer></footer>
   </body>

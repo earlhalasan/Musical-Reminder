@@ -5,10 +5,9 @@
       <h3>
         {{ playlists.name }}
       </h3>
-
-      <img src="{{ playlists.img }}" width="350" /><br />
-
       <h5 id="descript">{{ playlists.description }}</h5>
+
+      <img src="{{ playlists.img }}" width="300" /><br />
 
       <a href="/playlists/{{ playlists._id }}/edit"
         ><button>Edit {{ playlists.name }}</button></a
