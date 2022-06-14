@@ -9,6 +9,8 @@
 
       <img src="{{ playlists.img }}" width="300" /><br />
 
+      <a href="/songs/new"><button>Add Song</button></a><br />
+
       <a href="/playlists/{{ playlists._id }}/edit"
         ><button>Edit {{ playlists.name }}</button></a
       >
@@ -18,6 +20,28 @@
       >
         <input type="submit" value="Delete" />
       </form>
+
+      {% for song in songs %}
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+            <th>Album</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            song
+
+            <!-- <td>{{ song.name }}</td>
+            <td>{{ song.artist }}</td>
+            <td>{{ song.album }}</td> -->
+          </tr>
+        </tbody>
+      </table>
+      {% endfor %}
+
       <a href="/playlists/"><button>Back to Menu</button></a>
     </div>
   </article>

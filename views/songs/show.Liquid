@@ -1,0 +1,23 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <article>
+    <div>
+      <h3>
+        {{ songs.name }}
+      </h3>
+      <h5 id="descript">
+        <strong>Artist:</strong> {{ songs.artist }} <strong>Album:</strong>
+        {{ songs.album }}
+      </h5>
+
+      <img src="{{ songs.img }}" width="300" /><br />
+
+      <form action="/songs/{{ songs._id }}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete" />
+      </form>
+
+      <a href="/songs/"><button>Back to Menu</button></a>
+    </div>
+  </article>
+</div>
+{% endblock %}

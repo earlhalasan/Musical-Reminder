@@ -2,28 +2,22 @@
 <div>
   <a href="/playlists/new"><button>New Playlist</button></a>
   <a href="/songs/new"><button>New Song</button></a>
-  <a href="/songs"><button>All Songs</button></a>
+  <a href="/playlists"><button>All Playlists</button></a>
 
   <br /><br />
 
-  {% for playlist in playlists %}
+  {% for song in songs %}
   <article>
-    <a href="/playlists/{{ playlist._id }}">
+    <a href="/songs/{{ song._id }}">
       <div class="row padding" id="shadow">
         <div class="one-third column">
-          <img src="{{ playlist.img }}" width="200" class="u-max-full-width" />
+          <img src="{{ song.img }}" width="200" class="u-max-full-width" />
         </div>
 
         <div class="two-thirds column">
-          <h4>{{ playlist.name }}</h4>
-
-          <p id="descript">{{ playlist.description }}</p>
-          <p>
-            Genre:
-            <strong
-              ><em>{{ playlist.genre }}</em></strong
-            >
-          </p>
+          <h4>{{ song.name }}</h4>
+          <p id="descript">{{ song.artist }}</p>
+          <p id="descript">{{ song.album }}</p>
         </div>
 
         <br /></div

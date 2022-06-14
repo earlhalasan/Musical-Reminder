@@ -7,6 +7,7 @@ const playlistSchema = new Schema({
   description: String,
   img: String,
   genre: String,
+  songs: [{ type: Schema.Types.ObjectId, ref: "Song" }],
 });
 
 const Playlist = model("Playlist", playlistSchema);
