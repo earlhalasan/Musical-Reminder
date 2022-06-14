@@ -78,6 +78,22 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// Update Route (after edit)
+router.put("/:id", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+  Song.findByIdAndUpdate(id, req.body, { new: true })
+    .then((song) => {
+      // redirect to main page after updating
+      res.redirect(`/songs/${song.id}`);
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
+
 // Delete Route
 router.delete("/:id", (req, res) => {
   // get the id from params
@@ -87,6 +103,23 @@ router.delete("/:id", (req, res) => {
     .then((song) => {
       // redirect to main page after deleting
       res.redirect("/songs");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
+
+// Edit Route
+router.get("/:id/edit", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+  // get the playlist from the database
+  Song.findById(id)
+    .then((song) => {
+      // render edit page and send playlist data
+      res.render("songs/edit.liquid", { song });
     })
     // send error as json
     .catch((error) => {
