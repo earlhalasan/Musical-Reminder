@@ -45,11 +45,11 @@
           </tr>
         </thead>
         <tbody>
-          {% for playlist in playlists %}
+          {% for playlist in playlists.songs %}
           <tr>
-            <td value="{{ songs._id }}">{{ songs.name }}</td>
-            <td>{{ song.artist }}</td>
-            <td>{{ song.album }}</td>
+            <td>{{ playlist.name }}</td>
+            <td>{{ playlist.artist }}</td>
+            <td>{{ playlist.album }}</td>
             {% endfor %}
           </tr>
         </tbody>
