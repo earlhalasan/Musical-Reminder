@@ -1,5 +1,6 @@
 const express = require("express");
 const Playlist = require("../models/playlist.js");
+const Song = require("../models/song.js");
 const mongoose = require("mongoose");
 const db = mongoose.connection;
 
@@ -63,14 +64,31 @@ router.get("/:id", (req, res) => {
   const id = req.params.id;
   // find the particular playlist from the database
   Playlist.findById(id)
-    .then((playlists) => {
-      // render the template with the data from the database
-      res.render("playlists/show.liquid", { playlists });
-    })
-    .catch((error) => {
-      console.log(error);
-      res.json({ error });
+    .populate("songs")
+    .exec(function (err, playlists) {
+      Song.find(
+        {
+          _id: { $nin: playlists.songs },
+        },
+        function (err, songs) {
+          console.log(songs);
+          res.render("playlists/show.liquid", {
+            title: "song detail",
+            playlists,
+            songs,
+          });
+        }
+      );
     });
+  // .then((playlists) => {
+  //   console.log(playlists, "testing");
+  //   // render the template with the data from the database
+  //   res.render("playlists/show.liquid", { playlists });
+  // })
+  // .catch((error) => {
+  //   console.log(error);
+  //   res.json({ error });
+  // });
 });
 
 // Update Route (after edit)
@@ -104,6 +122,16 @@ router.delete("/:id", (req, res) => {
       console.log(error);
       res.json({ error });
     });
+});
+
+// Add Song to Playlist
+router.post("/:id/songs", (req, res) => {
+  Playlist.findById(req.params.id, function (error, playlist) {
+    playlist.songs.push(req.body.songId);
+    playlist.save(function (error, playlist) {
+      res.redirect("/playlists");
+    });
+  });
 });
 
 // Edit Route

@@ -9,7 +9,22 @@
 
       <img src="{{ playlists.img }}" width="300" id="shadow" /><br />
 
-      <a href="/songs/new"><button>Add Song</button></a><br />
+      <!-- <a href="/songs/new"><button>Add Song</button></a><br /> -->
+
+      <form
+        id="add-to-playlist"
+        action="{{ playlists._id }}/songs"
+        method="POST"
+      >
+        <button type="submit">Add Song From Library</button><br />
+        <select name="songId">
+          {% for song in songs %}
+          <option value="{{ song._id }}">
+            {{ song.name }} by {{ song.artist }}
+          </option>
+          {% endfor %}
+        </select>
+      </form>
 
       <a href="/playlists/{{ playlists._id }}/edit"
         ><button>Edit {{ playlists.name }}</button></a
@@ -21,7 +36,6 @@
         <input type="submit" value="Delete" />
       </form>
 
-      {% for song in songs %}
       <table class="u-full-width">
         <thead>
           <tr>
@@ -31,16 +45,15 @@
           </tr>
         </thead>
         <tbody>
+          {% for playlist in playlists %}
           <tr>
-            song
-
-            <!-- <td>{{ song.name }}</td>
+            <td value="{{ songs._id }}">{{ songs.name }}</td>
             <td>{{ song.artist }}</td>
-            <td>{{ song.album }}</td> -->
+            <td>{{ song.album }}</td>
+            {% endfor %}
           </tr>
         </tbody>
       </table>
-      {% endfor %}
 
       <a href="/playlists/"><button>Back to Menu</button></a>
     </div>

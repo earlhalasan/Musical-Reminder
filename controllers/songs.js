@@ -44,10 +44,9 @@ router.post("/", (req, res) => {
   Song.create(req.body)
     .then((song) => {
       console.log(song);
-      Playlist.findById(id);
-      Playlist.songs.push(req.body.songId);
       //   console.log(Playlist.songs);
       // redirect user to index page if successfully created item
+
       res.redirect("/songs");
     })
     // send error as json
