@@ -11,13 +11,18 @@
     <a href="/songs/{{ song._id }}">
       <div class="row padding" id="shadow">
         <div class="one-third column">
-          <img src="{{ song.img }}" width="200" class="u-max-full-width" />
+          <img
+            src="{{ song.img }}"
+            width="200"
+            class="u-max-full-width"
+            id="shadow"
+          />
         </div>
 
         <div class="two-thirds column">
           <h4>{{ song.name }}</h4>
-          <p id="descript">{{ song.artist }}</p>
-          <p id="descript">{{ song.album }}</p>
+          <p><strong>Artist:</strong> {{ song.artist }}</p>
+          <p><strong>Album:</strong> {{ song.album }}</p>
         </div>
 
         <br /></div

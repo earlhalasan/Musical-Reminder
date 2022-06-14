@@ -1,13 +1,13 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
   <article>
-    <div>
+    <div class="padding" id="shadow">
       <h3>
         {{ playlists.name }}
       </h3>
       <h5 id="descript">{{ playlists.description }}</h5>
 
-      <img src="{{ playlists.img }}" width="300" /><br />
+      <img src="{{ playlists.img }}" width="300" id="shadow" /><br />
 
       <a href="/songs/new"><button>Add Song</button></a><br />
 

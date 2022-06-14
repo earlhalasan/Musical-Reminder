@@ -40,11 +40,12 @@ router.get("/", (req, res) => {
 // Create Route
 router.post("/", (req, res) => {
   // create the new song
+  const id = req.params.id;
   Song.create(req.body)
     .then((song) => {
-      //   Playlist.findById(id);
       console.log(song);
-      //   Playlist.songs.push(song);
+      Playlist.findById(id);
+      Playlist.songs.push(req.body.songId);
       //   console.log(Playlist.songs);
       // redirect user to index page if successfully created item
       res.redirect("/songs");

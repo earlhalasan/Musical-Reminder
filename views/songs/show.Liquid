@@ -1,7 +1,7 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
   <article>
-    <div>
+    <div class="padding" id="shadow">
       <h3>
         {{ songs.name }}
       </h3>
@@ -10,7 +10,7 @@
         {{ songs.album }}
       </h5>
 
-      <img src="{{ songs.img }}" width="300" /><br />
+      <img src="{{ songs.img }}" width="300" id="shadow" /><br />
 
       <form action="/songs/{{ songs._id }}?_method=DELETE" method="POST">
         <input type="submit" value="Delete" />

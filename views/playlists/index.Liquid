@@ -2,7 +2,7 @@
 <div>
   <a href="/playlists/new"><button>New Playlist</button></a>
   <a href="/songs/new"><button>New Song</button></a>
-  <a href="/songs"><button>All Songs</button></a>
+  <a href="/songs"><button>Song Library</button></a>
 
   <br /><br />
 
@@ -11,7 +11,12 @@
     <a href="/playlists/{{ playlist._id }}">
       <div class="row padding" id="shadow">
         <div class="one-third column">
-          <img src="{{ playlist.img }}" width="200" class="u-max-full-width" />
+          <img
+            src="{{ playlist.img }}"
+            width="200"
+            class="u-max-full-width"
+            id="shadow"
+          />
         </div>
 
         <div class="two-thirds column">
