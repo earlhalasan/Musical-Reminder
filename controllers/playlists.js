@@ -12,8 +12,13 @@ const router = express.Router();
 ////////////////////////////////////////
 // Router Middleware
 ////////////////////////////////////////
+// Authorization Middleware
 router.use((req, res, next) => {
-  next();
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    res.redirect("/user/login");
+  }
 });
 
 /////////////////////////////////////////
@@ -23,7 +28,7 @@ router.use((req, res, next) => {
 // Index Route
 router.get("/", (req, res) => {
   // find all the playlists
-  Playlist.find({})
+  Playlist.find({ username: req.session.username })
     // render a template after they are found
     .then((playlists) => {
       res.render("playlists/index.liquid", {
@@ -40,6 +45,7 @@ router.get("/", (req, res) => {
 
 // Create Route
 router.post("/", (req, res) => {
+  req.body.username = req.session.username;
   // create the new playlist
   Playlist.create(req.body)
     .then((playlist) => {

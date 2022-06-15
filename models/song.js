@@ -7,6 +7,7 @@ const songSchema = new Schema({
   artist: String,
   img: String,
   album: String,
+  username: String,
 });
 
 const Song = model("Song", songSchema);

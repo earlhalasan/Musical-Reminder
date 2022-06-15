@@ -11,6 +11,7 @@ const router = express.Router();
 ////////////////////////////////////////
 // Router Middleware
 ////////////////////////////////////////
+// Authorization Middleware
 router.use((req, res, next) => {
   next();
 });
