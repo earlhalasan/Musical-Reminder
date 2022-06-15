@@ -2,6 +2,8 @@ const express = require("express");
 const Song = require("../models/song.js");
 const Playlist = require("../models/playlist.js");
 const mongoose = require("mongoose");
+const fetch = require("node-fetch");
+require("dotenv").config();
 
 /////////////////////////////////////////
 // Create Route
@@ -37,6 +39,16 @@ router.get("/", (req, res) => {
       });
     });
 });
+
+// API Route
+router.post("/"),
+  (req, res) => {
+    const track = req.body.track;
+    const requestURL = `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=b21f1150de270ef72ab263318edd3e38&artist=cher&track=${track}&format=json`;
+    fetch(requestURL).then((apiResponse) => {
+      console.log("Music API success", track);
+    });
+  };
 
 // Create Route
 router.post("/", (req, res) => {
