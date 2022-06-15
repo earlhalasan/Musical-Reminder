@@ -129,7 +129,19 @@ router.post("/:id/songs", (req, res) => {
   Playlist.findById(req.params.id, function (error, playlist) {
     playlist.songs.push(req.body.songId);
     playlist.save(function (error, playlist) {
-      res.redirect("/playlists");
+      res.redirect(`/playlists/${playlist.id}`);
+    });
+  });
+});
+
+// Remove Song from Playlist
+router.delete("/:id/songs/:songId", (req, res) => {
+  Playlist.findById(req.params.id, function (error, playlist) {
+    playlist.songs.splice(playlist.songs.indexOf(req.params.songId), 1);
+    // console.log("song to be deleted");
+    // console.log(req.params.songId);
+    playlist.save(function (error, playlist) {
+      res.redirect(`/playlists/${playlist.id}`);
     });
   });
 });

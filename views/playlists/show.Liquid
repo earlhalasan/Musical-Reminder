@@ -35,6 +35,7 @@
       >
         <input type="submit" value="Delete" />
       </form>
+      <a href="/playlists/"><button>Back to Menu</button></a>
 
       <table class="u-full-width">
         <thead>
@@ -45,17 +46,25 @@
           </tr>
         </thead>
         <tbody>
-          {% for playlist in playlists.songs %}
+          {% for song in playlists.songs %}
           <tr>
-            <td>{{ playlist.name }}</td>
-            <td>{{ playlist.artist }}</td>
-            <td>{{ playlist.album }}</td>
+            <td>{{ song.name }}</td>
+            <td>{{ song.artist }}</td>
+            <td>{{ song.album }}</td>
+            <td>
+              <form
+                action="/playlists/{{ playlists._id }}/songs/{{
+                  song._id
+                }}?_method=DELETE"
+                method="POST"
+              >
+                <input type="submit" value="Delete" />
+              </form>
+            </td>
             {% endfor %}
           </tr>
         </tbody>
       </table>
-
-      <a href="/playlists/"><button>Back to Menu</button></a>
     </div>
   </article>
 </div>
