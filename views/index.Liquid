@@ -5,16 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playlistr</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
-      type="text/css"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Jquery -->
     <script
@@ -28,14 +19,27 @@
     <script src="/app.js" defer></script>
   </head>
   <body id="bg">
-    <div class="container">
-      <main>
+    <div class="flex place-content-center">
+      <main class="">
         <header>
-          <a href="/playlists"><h1>Playlistr</h1></a>
+          <a href="/playlists"><h1 class="underline text-9xl">Playlistr</h1></a>
         </header>
-        <div>
-          <a href="/users/signup"><button>Signup</button></a>
-          <a href="/users/login"><button>Login</button></a>
+        <br />
+        <div class="flex place-content-center">
+          <a href="/users/signup"
+            ><button
+              class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 transition-colors"
+            >
+              Signup
+            </button></a
+          >
+          <a href="/users/login"
+            ><button
+              class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 transition-colors"
+            >
+              Login
+            </button></a
+          >
         </div>
       </main>
     </div>
