@@ -36,8 +36,9 @@ Playlist to songs: Many-to-Many
 - JavaScript
 - Liquid
 - MongoDB
-- Node
+- Node.js
+- Tailwind
 
 ## Stretch Goals
 
-Be able to add songs directly from new song page. Incorporate an API that autofills the artist album and album cover so that the user doesn't have to manually add it.
+Incorporate an API that autofills the album name and album cover so that the user doesn't have to manually add it. Connection to an API that randomly generates a playlist cover if one's not given.
