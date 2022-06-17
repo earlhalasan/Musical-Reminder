@@ -5,16 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Playlistr</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"
-      type="text/css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
-      type="text/css"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Jquery -->
     <script
@@ -27,12 +18,47 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="/app.js" defer></script>
   </head>
-  <body id="bg">
-    <div class="container">
+  <body id="bg" class="font-sans">
+    <div class="container mx-auto">
       <main>
-        <header>
-          <a href="/playlists"><h1>Playlistr</h1></a>
-        </header>
+        <nav class="bg-black rounded-b-2xl">
+          <div class="flex space-x-4">
+            <a
+              href="/playlists"
+              class="text-white px-3 py-2 rounded-md text-sm font-medium underline text-4xl font-semibold"
+              ><h1>Playlistr</h1></a
+            >
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              href="/playlists"
+              class="text-white hover:bg-orange-200 hover:text-black px-3 py-2 rounded-md text-base font-medium place-self-center transition-colors duration-300"
+              >All Playlists</a
+            >
+
+            <a
+              href="/songs"
+              class="text-white hover:bg-orange-200 hover:text-black px-3 py-2 rounded-md text-base font-medium place-self-center transition-colors duration-300"
+              >Song Library</a
+            >
+            <a
+              href="/playlists/new"
+              class="text-white hover:bg-green-400 hover:text-black px-3 py-2 rounded-md text-base font-medium place-self-center transition-colors duration-300"
+              >New Playlist</a
+            >
+
+            <a
+              href="/songs/new"
+              class="text-white hover:bg-green-400 hover:text-black px-3 py-2 rounded-md text-base font-medium place-self-center transition-colors duration-300"
+              >New Song</a
+            >
+
+            <a
+              href="/users/logout"
+              class="text-white hover:bg-red-500 hover:text-black px-3 py-2 rounded-md text-base font-medium place-self-center transition-colors duration-300"
+              >Logout</a
+            >
+          </div>
+        </nav>
         {% block content %}My default content{% endblock %}
       </main>
     </div>

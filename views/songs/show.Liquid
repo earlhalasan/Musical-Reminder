@@ -1,26 +1,44 @@
 {% layout "layout.liquid" %} {% block content %}
+<a href="/songs"
+  ><h1 class="text-5xl font-semibold pt-2 pl-3 underline">Songs</h1></a
+>
 <div>
   <article>
-    <div class="padding" id="shadow">
-      <h3>
+    <div class="padding bg-white mt-3 pl-4" id="shadow">
+      <h3 class="text-4xl font-semibold">
         {{ songs.name }}
       </h3>
-      <h5 id="descript">
-        <strong>Artist:</strong> {{ songs.artist }} <strong>Album:</strong>
+      <h5>
+        <strong>Artist:</strong>
+        {{ songs.artist }} <br /><strong>Album:</strong>
         {{ songs.album }}
       </h5>
 
       <img src="{{ songs.img }}" width="300" id="shadow" /><br />
 
       <a href="/songs/{{ songs._id }}/edit"
-        ><button>Edit {{ songs.name }}</button></a
+        ><button
+          class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-amber-500 transition-colors duration-300 w-48"
+        >
+          Edit {{ songs.name }}
+        </button></a
       >
 
       <form action="/songs/{{ songs._id }}?_method=DELETE" method="POST">
-        <input type="submit" value="Delete" />
+        <input
+          type="submit"
+          value="Delete"
+          class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-red-500 transition-colors duration-300 w-48"
+        />
       </form>
 
-      <a href="/songs/"><button>Back to Song Library</button></a>
+      <a href="/songs/"
+        ><button
+          class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-48"
+        >
+          Back to Song Library
+        </button></a
+      >
     </div>
   </article>
 </div>

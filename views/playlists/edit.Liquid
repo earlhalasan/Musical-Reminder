@@ -1,49 +1,59 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <form action="/playlists/{{ playlist._id }}?_method=PUT" method="POST">
-    <fieldset>
-      <legend>Edit {{ playlist.name }}</legend>
-      <label>
-        NAME:<br />
-        <input
-          type="text"
-          name="name"
-          placeholder="enter playlist name"
-          value="{{ playlist.name }}"
-        />
-      </label>
-      <label>
-        DESCRIPTION:<br />
-        <input
-          type="text"
-          name="description"
-          placeholder="enter playlist description"
-          value="{{ playlist.description }}"
-        />
-      </label>
-      <label>
-        GENRE:<br />
-        <input
-          type="text"
-          name="genre"
-          placeholder="enter genre(s)"
-          value="{{ playlist.genre }}"
-        />
-      </label>
-      <label>
-        IMG URL:<br />
-        <input
-          type="text"
-          name="img"
-          placeholder="enter playlist cover URL"
-          value="{{ playlist.img }}"
-        />
-      </label>
-    </fieldset>
-    <input type="submit" value="Confirm {{ playlist.name }} Edit" />
-  </form>
-  <a href="/playlists/{{ playlist._id }}"
-    ><button>Back to {{ playlist.name }}</button></a
-  >
+  
+    <form action="/playlists/{{ playlist._id }}?_method=PUT" method="POST">
+      <fieldset>
+        <legend class="text-5xl font-semibold pt-2 pl-3 underline">Edit {{ playlist.name }}</legend>
+        <label>
+          <div class="padding bg-white mt-3 font-semibold" id="shadow">
+          NAME:<br />
+          <input
+            type="text"
+            name="name"
+            placeholder="enter playlist name"
+            value="{{ playlist.name }}"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </label><br>
+        <label>
+          DESCRIPTION:<br />
+          <input
+            type="text"
+            name="description"
+            placeholder="enter playlist description"
+            value="{{ playlist.description }}"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </label><br>
+        <label>
+          GENRE:<br />
+          <input
+            type="text"
+            name="genre"
+            placeholder="enter genre(s)"
+            value="{{ playlist.genre }}"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </label><br>
+        <label>
+          IMG URL:<br />
+          <input
+            type="text"
+            name="img"
+            placeholder="enter playlist cover URL"
+            value="{{ playlist.img }}"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </label><br>
+        <input type="submit" value="Confirm {{ playlist.name }} Edit" class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-64"/>
+        <a href="/playlists/{{ playlist._id }}"
+        ><button class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-64">Back to {{ playlist.name }}</button></a
+      >
+      </div>
+      </fieldset>
+      
+    </form>
+  
+  
 </div>
 {% endblock %}

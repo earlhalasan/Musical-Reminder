@@ -1,71 +1,108 @@
 {% layout "layout.liquid" %} {% block content %}
+<a href="/playlists"><h1 class="text-5xl font-semibold pt-2 pl-3 underline">Playlists</h1></a>
 <div>
-  <article>
-    <div class="padding" id="shadow">
-      <h3>
-        {{ playlists.name }}
-      </h3>
-      <h5 id="descript">{{ playlists.description }}</h5>
+  <div>
+    <div class="flex">
+      <div class="padding bg-white mt-3 flex w-full" id="shadow">
+        <div id="leftcontainer" class="w-1/4 pl-2">
+          <h3 class="text-4xl font-semibold">
+            {{ playlists.name }}
+          </h3>
+          <h5 id="descript">{{ playlists.description }}</h5>
 
-      <img src="{{ playlists.img }}" width="300" id="shadow" /><br />
+          <img src="{{ playlists.img }}" width="300" id="shadow" /><br />
 
-      <!-- <a href="/songs/new"><button>Add Song</button></a><br /> -->
+          <!-- <a href="/songs/new"><button>Add Song</button></a><br /> -->
 
-      <form
-        id="add-to-playlist"
-        action="{{ playlists._id }}/songs"
-        method="POST"
-      >
-        <button type="submit">Add Song From Library</button><br />
-        <select name="songId">
-          {% for song in songs %}
-          <option value="{{ song._id }}">
-            {{ song.name }} by {{ song.artist }}
-          </option>
-          {% endfor %}
-        </select>
-      </form>
+          <a href="/playlists/{{ playlists._id }}/edit"
+            ><button
+              class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-amber-500 transition-colors duration-300 w-48"
+            >
+              Edit {{ playlists.name }}
+            </button></a
+          >
+          <form
+            action="/playlists/{{ playlists._id }}?_method=DELETE"
+            method="POST"
+          >
+            <button
+              
+              value="Delete"
+              class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-red-500 transition-colors duration-300 w-48"
+            />Delete</button>
+          </form>
+          <a href="/playlists/"
+            ><button
+              class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-48"
+            >
+              Back to Menu
+            </button></a
+          >
+        </div>
 
-      <a href="/playlists/{{ playlists._id }}/edit"
-        ><button>Edit {{ playlists.name }}</button></a
-      >
-      <form
-        action="/playlists/{{ playlists._id }}?_method=DELETE"
-        method="POST"
-      >
-        <input type="submit" value="Delete" />
-      </form>
-      <a href="/playlists/"><button>Back to Menu</button></a>
-
-      <table class="u-full-width">
-        <thead>
-          <tr>
-            <th>Song</th>
-            <th>Artist</th>
-            <th>Album</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for song in playlists.songs %}
-          <tr>
-            <td>{{ song.name }}</td>
-            <td>{{ song.artist }}</td>
-            <td>{{ song.album }}</td>
-            <td>
-              <form
-                action="/playlists/{{ playlists._id }}/songs/{{
-                  song._id
-                }}?_method=DELETE"
-                method="POST"
-              >
-                <input type="submit" value="Remove" />
-              </form>
-            </td>
-            {% endfor %}
-          </tr>
-        </tbody>
-      </table>
+        <div id="tabelediv" class="w-3/4">
+          <form
+            id="add-to-playlist"
+            action="{{ playlists._id }}/songs"
+            method="POST"
+          >
+            <select
+              name="songId"
+              class="form-select appearance-none px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            >
+              {% for song in songs %}
+              <option value="{{ song._id }}">
+                {{ song.name }} by {{ song.artist }}
+              </option>
+              {% endfor %}
+            </select>
+            <button
+              type="submit"
+              class="px-4 py-2 m-1 text-base text-black font-semibold rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-52"
+            >
+              Add Song From Library
+            </button>
+          </form>
+          <div
+            id="tablediv"
+            class="relative overflow-x-auto shadow-md sm:rounded-lg py-2"
+          >
+            <table class="w-full text-sm text-left" id="table">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                <tr>
+                  <th class="px-6 py-3">Song</th>
+                  <th class="px-6 py-3">Artist</th>
+                  <th class="px-6 py-3">Album</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for song in playlists.songs %}
+                <tr>
+                  <td class="px-5 py-2">{{ song.name }}</td>
+                  <td class="px-5 py-2">{{ song.artist }}</td>
+                  <td class="px-5 py-2">{{ song.album }}</td>
+                  <td>
+                    <form
+                      action="/playlists/{{ playlists._id }}/songs/{{
+                        song._id
+                      }}?_method=DELETE"
+                      method="POST"
+                    >
+                      <input
+                        type="submit"
+                        value="Remove"
+                        class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-red-500 transition-colors duration-300 w-24"
+                      />
+                    </form>
+                  </td>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-  </article>
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}

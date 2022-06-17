@@ -1,13 +1,30 @@
 {% layout "layout.liquid" %} {% block content %}
-<div>
+<legend class="text-5xl font-semibold pt-2 pl-3 underline">New User</legend>
+<div class="padding bg-white mt-3 pl-4" id="shadow">
   <form action="/users/signup" method="POST">
     <fieldset>
-      <legend>New User</legend>
-      <label>USERNAME: <input type="text" name="username" required /> </label>
       <label
-        >PASSWORD: <input type="password" name="password" required />
-      </label>
-      <input type="submit" value="Create Account" />
+        >USERNAME:<br />
+        <input
+          type="text"
+          name="username"
+          class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        /> </label
+      ><br />
+      <label
+        >PASSWORD: <br /><input
+          type="password"
+          name="password"
+          class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          required
+        /> </label
+      ><br />
+      <input
+        type="submit"
+        value="Create Account"
+        class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-48"
+      />
     </fieldset>
   </form>
 </div>

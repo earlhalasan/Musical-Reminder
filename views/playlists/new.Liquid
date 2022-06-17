@@ -1,31 +1,64 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-  <form action="/playlists" method="POST">
-    <fieldset>
-      <legend><h3>Create a New Playlist</h3></legend>
-      <label>
-        NAME:<br />
-        <input type="text" name="name" placeholder="enter playlist name" />
-      </label>
-      <label>
-        DESCRIPTION:<br />
+  <legend>
+    <h3 class="text-5xl font-semibold pt-2 pl-3 underline">
+      Create a New Playlist
+    </h3>
+  </legend>
+  <div class="padding bg-white mt-3 font-semibold" id="shadow">
+    <form action="/playlists" method="POST">
+      <fieldset>
+        <label>
+          Name:<br />
+          <input
+            type="text"
+            name="name"
+            placeholder="enter playlist name"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          /> </label
+        ><br />
+        <label>
+          Description:<br />
+          <input
+            type="text"
+            name="description"
+            placeholder="enter playlist description"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          /> </label
+        ><br />
+        <label>
+          Genre:<br />
+          <input
+            type="text"
+            name="genre"
+            placeholder="enter genre(s)"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          /> </label
+        ><br />
+
+        <label>
+          IMG URL:<br />
+          <input
+            type="text"
+            name="img"
+            placeholder="enter playlist cover URL"
+            class="shadow appearance-none border border-black rounded py-2 px-3 text-black mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          /> </label
+        ><br />
         <input
-          type="text"
-          name="description"
-          placeholder="enter playlist description"
+          type="submit"
+          value="Create New Playlist"
+          class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-44"
         />
-      </label>
-      <label>
-        GENRE:<br />
-        <input type="text" name="genre" placeholder="enter genre(s)" />
-      </label>
-      <label>
-        IMG URL:<br />
-        <input type="text" name="img" placeholder="enter playlist cover URL" />
-      </label>
-    </fieldset>
-    <input type="submit" value="create new playlist" />
-  </form>
-  <a href="/playlists/"><button>Back to Menu</button></a>
+      </fieldset>
+    </form>
+    <a href="/playlists"
+      ><button
+        class="px-2 py-1 m-1 text-base text-black rounded-md bg-orange-200 hover:text-white hover:bg-green-400 transition-colors duration-300 w-44"
+      >
+        Back to Playlists
+      </button></a
+    >
+  </div>
 </div>
 {% endblock %}

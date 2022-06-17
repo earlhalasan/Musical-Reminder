@@ -1,29 +1,34 @@
 {% layout "layout.liquid" %} {% block content %}
-<div>
-  <a href="/playlists/new"><button>New Playlist</button></a>
+<a href="/playlists"
+  ><h1 class="text-5xl font-semibold pt-2 pl-3 underline">Playlists</h1></a
+>
+<div class="flex flex-row flex-wrap">
+  <!-- <a href="/playlists/new"><button>New Playlist</button></a>
   <a href="/songs/new"><button>New Song</button></a>
   <a href="/songs"><button>Song Library</button></a>
-  <a href="/users/logout"><button>Logout</button></a>
+  <a href="/users/logout"><button>Logout</button></a> -->
 
-  <br /><br />
+  <br />
 
   {% for playlist in playlists %}
-  <article>
+  <div class="">
     <a href="/playlists/{{ playlist._id }}">
-      <div class="row padding" id="shadow">
-        <div class="one-third column">
-          <img
-            src="{{ playlist.img }}"
-            width="200"
-            class="u-max-full-width"
-            id="shadow"
-          />
+      <!-- begin all div -->
+      <div
+        class="padding flex mt-3 mr-4 mb-1 bg-white hover:bg-orange-100 transition-colors duration-300"
+        id="shadow"
+      >
+        <!-- begin img div -->
+        <div class="">
+          <img src="{{ playlist.img }}" width="230" class="" id="shadow" />
         </div>
-
-        <div class="two-thirds column">
-          <h4>{{ playlist.name }}</h4>
-
+        <!-- end img div -->
+        <!-- begin info div -->
+        <div class="padding" id="right-side">
+          <h4 class="text-3xl font-semibold">{{ playlist.name }}</h4>
+          <br />
           <p id="descript">{{ playlist.description }}</p>
+          <br />
           <p>
             Genre:
             <strong
@@ -31,10 +36,11 @@
             >
           </p>
         </div>
-
-        <br /></div
-    ></a>
-  </article>
+        <!-- end info div -->
+      </div>
+      <!-- end all div -->
+    </a>
+  </div>
   <br />
   {% endfor %}
 </div>
