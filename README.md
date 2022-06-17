@@ -12,9 +12,9 @@ As a user, log-in and create new playlists. Within the playlists, you can add so
 
 ## Wireframes
 
-<img src="https://i.imgur.com/OicvcaI.png" width=300>
-<img src="https://i.imgur.com/uO6VZkB.png" width=300>
-<img src="https://i.imgur.com/TMDas6G.png" width=300>
+<img src="https://i.imgur.com/OicvcaI.png" width=350>
+<img src="https://i.imgur.com/uO6VZkB.png" width=350>
+<img src="https://i.imgur.com/TMDas6G.png" width=350>
 
 ## ERD
 
